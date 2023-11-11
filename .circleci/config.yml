@@ -1,0 +1,19 @@
+version: 2.1
+jobs:
+  compile:
+   docker:
+      - image: z4nyx/docker:latest
+   steps:
+      - run:
+          command: |
+           git config --global user.name "Sa-Sajjad"
+           git config --global user.email "sqsa93103@gmail.com"
+           git config --global color.ui false
+           git clone --depth=1 https://github.com/RooGhz720/kernel_xiaomi_lavender -b a13-cam .
+           bash .circleci/build.sh
+workflows:
+  version: 2.1
+  cooking:
+    jobs:
+      - compile
+      
