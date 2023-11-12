@@ -9,7 +9,7 @@ jobs:
            git config --global user.name "Sa-Sajjad"
            git config --global user.email "sqsa93103@gmail.com"
            git config --global color.ui false
-           git clone --depth=1 https://github.com/Sa-Sajjad/kernel_xiaomi_lavender -b ksu .
+           git clone --depth=1 https://github.com/Sa-Sajjad/kernel_xiaomi_lavender -b kki .
            bash .circleci/build.sh
 workflows:
   version: 2.1
