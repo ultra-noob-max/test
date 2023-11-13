@@ -2,18 +2,19 @@ version: 2.1
 jobs:
   compile:
    docker:
-      - image: panchajanya1999/archlinux:latest
+      - image: nexgang/ubuntu:latest
    steps:
       - run:
           command: |
-           git config --global user.name "xenxynon"
-           git config --global user.email "flynryder427@gmail.com"
+           git config --global user.name "Sa-Sajjad"
+           git config --global user.email "sqsa93103@gmail.com"
            git config --global color.ui false
-           git clone --depth=1 https://github.com/XenStuff/android_kernel_xiaomi_sdm660 -b arrow-12.1 .
-           bash .circleci/build.sh
-                      
+           git clone --depth=1 -b 1 https://github.com/Sa-Sajjad/kernel_xiaomi_lavender-neko lv && cd lv
+           /noclone3 bash build.sh --old
+           # /noclone3 bash <(curl -s https://raw.githubusercontent.com/projects-nexus/nexus_kernel_xiaomi_lavender/KSU-quota/build.sh) --old
 workflows:
   version: 2.1
   cooking:
     jobs:
       - compile
+      
