@@ -2,16 +2,15 @@ version: 2.1
 jobs:
   compile:
    docker:
-      - image: z4nyx/docker:latest
+      - image: nexgang/ubuntu:latest
    steps:
       - run:
           command: |
            git config --global user.name "Sa-Sajjad"
            git config --global user.email "sqsa93103@gmail.com"
            git config --global color.ui false
-           git clone --depth=1 https://github.com/Coptan99/kernel_xiaomi_lavender -b tiramisu .
-           bash <(curl -s https://raw.githubusercontent.com/RooGhz720/kernel_xiaomi_lavender/a13-cam/.circleci/build.sh)
-
+           git clone --depth=1 -b KSU-quota https://github.com/projects-nexus/nexus_kernel_xiaomi_lavender lv && cd lv
+           /noclone3 bash build.sh --old
 workflows:
   version: 2.1
   cooking:
