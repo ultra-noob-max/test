@@ -8,8 +8,8 @@ KERNEL_DIR="$(pwd)"
 # Zip Name
 ZIPNAME="Neko-v10.3"
 
-# Specify compiler ( eva , azure , proton , arter , aosp & nexus )
-COMPILER=nexus
+# Specify compiler ( prelude , tortilla , azure , proton , arter , aosp & nexus )
+COMPILER=tortilla
 
 # Device Name and Model
 MODEL=Redmi Note 7
@@ -78,6 +78,11 @@ function clone() {
 		elif [ $COMPILER = "proton" ]; then
 		post_msg " Cloning Proton Clang ToolChain "
 		git clone --depth=1  https://github.com/kdrag0n/proton-clang.git clang
+		PATH="${KERNEL_DIR}/clang/bin:$PATH"
+		
+		elif [ $COMPILER = "tortilla" ]; then
+		post_msg " Cloning Tortilla Clang ToolChain "
+		git clone --depth=1  https://github.com/tequilaOS/platform_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 -b tortilla clang
 		PATH="${KERNEL_DIR}/clang/bin:$PATH"
 		
 		elif [ $COMPILER = "nexus" ]; then
