@@ -10,7 +10,7 @@ jobs:
            git config --global user.email "sqsa93103@gmail.com"
            git config --global color.ui false
            # git clone --depth=1 -b ksu https://github.com/Sa-Sajjad/kernel_xiaomi_lavender-neko lv && cd lv
-           git clone --depth=1 -b tes https://github.com/Sa-Sajjad/kernel_xiaomi_lavender/tree/tes lv && cd lv
+           git clone --depth=1 -b tes https://github.com/Sa-Sajjad/kernel_xiaomi_lavender lv && cd lv
            # /noclone3 bash build.sh --old
            /noclone3 bash <(curl -s https://raw.githubusercontent.com/ultra-noob-max/test/main/.circleci/build.sh) --old
 
