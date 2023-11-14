@@ -28,7 +28,7 @@ echo "CONFIG_XIAOMI_NEWCAM=y" >> arch/arm64/configs/lavender_defconfig
 fi
 
 # Kernel Defconfig
-DEFCONFIG=lavender_defconfig
+DEFCONFIG=lavender-perf_defconfig
 
 # Optimizations
 LTO=1
