@@ -2,7 +2,8 @@ version: 2.1
 jobs:
   compile:
    docker:
-      - image: nexgang/ubuntu:latest
+      # - image: nexgang/ubuntu:latest
+      - image: z4nyx/docker:latest
    steps:
       - run:
           command: |
