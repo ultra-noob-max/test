@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
-git clone --depth=1 -b nexus-14  https://gitlab.com/Project-Nexus/nexus-clang.git clang
-# git clone --depth=1 https://github.com/sohamxda7/llvm-stable  clang
-# git clone https://github.com/sohamxda7/llvm-stable -b gcc64 --depth=1 gcc
-# git clone https://github.com/sohamxda7/llvm-stable -b gcc32  --depth=1 gcc32
+git clone --depth=1 https://github.com/sohamxda7/llvm-stable  clang
+git clone https://github.com/sohamxda7/llvm-stable -b gcc64 --depth=1 gcc
+git clone https://github.com/sohamxda7/llvm-stable -b gcc32  --depth=1 gcc32
 git clone --depth=1 https://github.com/sohamxda7/AnyKernel3 AnyKernel
 
 echo "Done"
@@ -91,7 +90,7 @@ function zipping() {
     zip -r9 Snx-SiXtY-N9-lavender-${TANGGAL}.zip *
     cd ..
 }
-compile
+compile2
 zipping
 END=$(date +"%s")
 DIFF=$(($END - $START))
