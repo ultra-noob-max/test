@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
-git clone --depth=1 https://github.com/sohamxda7/llvm-stable  clang
-git clone https://github.com/sohamxda7/llvm-stable -b gcc64 --depth=1 gcc
-git clone https://github.com/sohamxda7/llvm-stable -b gcc32  --depth=1 gcc32
+git clone --depth=1 -b nexus-14  https://gitlab.com/Project-Nexus/nexus-clang.git clang
+# git clone --depth=1 https://github.com/sohamxda7/llvm-stable  clang
+# git clone https://github.com/sohamxda7/llvm-stable -b gcc64 --depth=1 gcc
+# git clone https://github.com/sohamxda7/llvm-stable -b gcc32  --depth=1 gcc32
 git clone --depth=1 https://github.com/sohamxda7/AnyKernel3 AnyKernel
 
 echo "Done"
@@ -11,6 +12,8 @@ TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
 KERNEL_DIR=$(pwd)
 PATH="${KERNEL_DIR}/clang/bin:${KERNEL_DIR}/gcc/bin:${KERNEL_DIR}/gcc32/bin:${PATH}"
+VERBOSE=0
+LINKER=ld.lld
 
 export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export ARCH=arm64
