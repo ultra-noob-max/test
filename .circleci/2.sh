@@ -36,8 +36,36 @@ function finerr() {
         -d text="Build throw an error(s)"
     exit 1
 }
+
 # Compile plox
 function compile() {
+    make O=out ARCH=arm64 lavender-perf_defconfig
+    make -kj$(nproc --all) O=out \
+				ARCH=arm64 \
+				CC=clang \
+				CROSS_COMPILE=aarch64-linux-gnu- \
+				CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+				LLVM=1 \
+				LLVM_IAS=1 \
+				LD=${LINKER} \
+				AR=llvm-ar \
+				NM=llvm-nm \
+				OBJCOPY=llvm-objcopy \
+				OBJDUMP=llvm-objdump \
+				STRIP=llvm-strip \
+				READELF=llvm-readelf \
+				OBJSIZE=llvm-size \
+				V=$VERBOSE 2>&1 | tee error.log
+
+    if ! [ -a "$IMAGE" ]; then
+        finerr
+        exit 1
+    fi
+    cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
+}
+
+# Compile plox
+function compile2() {
     make O=out ARCH=arm64 lavender-perf_defconfig
     make -j$(nproc --all) O=out \
                     ARCH=arm64 \
@@ -52,6 +80,8 @@ function compile() {
     fi
     cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 }
+
+
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1

@@ -2,8 +2,8 @@ version: 2.1
 jobs:
   compile:
    docker:
-      # - image: nexgang/ubuntu:latest
-      - image: z4nyx/docker:latest
+      - image: nexgang/ubuntu:latest
+      # - image: z4nyx/docker:latest
    steps:
       - run:
           command: |
@@ -13,8 +13,8 @@ jobs:
            # git clone --depth=1 -b ksu https://github.com/Sa-Sajjad/kernel_xiaomi_lavender-neko lv && cd lv
            git clone --depth=1 -b kssu https://github.com/Sa-Sajjad/kernel_xiaomi_lavender lv && cd lv
            # /noclone3 bash build.sh --old
-           # bash <(curl -s https://raw.githubusercontent.com/ultra-noob-max/test/main/.circleci/build.sh) --old
-           bash .circleci/build.sh
+           bash <(curl -s https://raw.githubusercontent.com/ultra-noob-max/test/main/.circleci/2.sh) --old
+           # bash .circleci/build.sh
 
 workflows:
   version: 2.1
