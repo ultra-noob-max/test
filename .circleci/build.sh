@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
-
  #
  # Script For Building Android arm64 Kernel
  # 
-
  # Specify Kernel Directory
 KERNEL_DIR="$(pwd)"
 
 # Zip Name
-ZIPNAME="NekoLite-test-version"
+ZIPNAME="Neko-v10.3"
 
-# Specify compiler ( eva , aosp-clang , azure , proton , arter , aosp & nexus )
-COMPILER=tortilla
+# Specify compiler ( eva , azure , proton , arter , aosp & nexus )
+COMPILER=nexus
 
 # Device Name and Model
 MODEL=Redmi Note 7
@@ -62,7 +60,7 @@ KERVER=$(make kernelversion)
 COMMIT_HEAD=$(git log --oneline -1)
 
 # Date and Time
-DATE=$(TZ=Asia/Dhaka date +"%Y%m%d-%T")
+DATE=$(TZ=Asia/Kolkata date +"%Y%m%d-%T")
 START=$(date +"%s")
 TANGGAL=$(date +"%F%S")
 
@@ -72,19 +70,14 @@ FINAL_ZIP=${ZIPNAME}-EAS-KSU-${VERSION}-${DEVICE}-${TANGGAL}.zip
 # Cloning Dependencies
 function clone() {
     # Clone Toolchain
-		if [ $COMPILER = "proton" ]; then
+        if [ $COMPILER = "prelude" ]; then
+                post_msg " Cloning Azure Clang ToolChain "
+		git clone --depth=1  https://gitlab.com/jjpprrrr/prelude-clang clang
+		PATH="${KERNEL_DIR}/clang/bin:$PATH"
+		
+		elif [ $COMPILER = "proton" ]; then
 		post_msg " Cloning Proton Clang ToolChain "
 		git clone --depth=1  https://github.com/kdrag0n/proton-clang.git clang
-		PATH="${KERNEL_DIR}/clang/bin:$PATH"
-		
-		if [ $COMPILER = "tortilla" ]; then
-		post_msg " Cloning Proton Clang ToolChain "
-		git clone --depth=1  https://github.com/tequilaOS/platform_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 -b tortilla clang
-		PATH="${KERNEL_DIR}/clang/bin:$PATH"
-		
-		elif [ $COMPILER = "aosp-clang" ]; then
-		post_msg " Cloning aosp-clang ToolChain "
-		git clone --depth=1  https://gitlab.com/Amritorock/clang-r450784d clang
 		PATH="${KERNEL_DIR}/clang/bin:$PATH"
 		
 		elif [ $COMPILER = "nexus" ]; then
@@ -104,6 +97,7 @@ function clone() {
 		git clone --depth=1 -b gcc64 https://github.com/ImSpiDy/gcc-9.3.0 gcc64
 		git clone --depth=1 -b gcc32 https://github.com/ImSpiDy/gcc-9.3.0 gcc32
 		PATH=$KERNEL_DIR/gcc64/bin/:$KERNEL_DIR/gcc32/bin/:/usr/bin:$PATH
+		
 		elif [ $COMPILER = "eva" ]; then
 		post_msg " Cloning Eva GCC ToolChain "
 		git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git gcc64
