@@ -9,7 +9,7 @@ KERNEL_DIR="$(pwd)"
 ZIPNAME="Neko-v10.3"
 
 # Specify compiler ( prelude , tortilla , azure , proton , arter , aosp & nexus )
-COMPILER=prelude
+COMPILER=aosp
 
 # Device Name and Model
 MODEL=Redmi Note 7
