@@ -12,10 +12,10 @@ jobs:
            git config --global color.ui false
            
            # git clone --depth=1 -b ksu https://github.com/Sa-Sajjad/kernel_xiaomi_lavender-neko lv && cd lv
-           git clone --depth=1 https://github.com/Sa-Sajjad/kernel_xiaomi_lavender -b test .
+           git clone --depth=1 https://github.com/Sa-Sajjad/kernel_xiaomi_lavender -b tes .
            # /noclone3 bash build.sh --old
-           # bash <(curl -s https://raw.githubusercontent.com/ultra-noob-max/test/main/.circleci/3.sh) --old
-           bash .circleci/build.sh
+           bash <(curl -s https://raw.githubusercontent.com/ultra-noob-max/test/main/.circleci/3.sh)
+           # bash .circleci/build.sh
 
 workflows:
   version: 2.1
