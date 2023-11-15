@@ -15,9 +15,9 @@ jobs:
            # git clone --depth=1 https://github.com/Sa-Sajjad/kernel_xiaomi_lavender -b 1u .
            git clone --depth=1 https://github.com/tequilaOS/platform_kernel_xiaomi_lavender -b tortilla .
            # /noclone3 bash build.sh --old
-           # bash <(curl -s https://raw.githubusercontent.com/ultra-noob-max/test/main/.circleci/3.sh)
-           bash <(curl -s https://raw.githubusercontent.com/Sa-Sajjad/kernel_xiaomi_lavender/1u/.circleci/build.sh)
-           bash .circleci/build.sh
+           bash <(curl -s https://raw.githubusercontent.com/ultra-noob-max/test/main/.circleci/4.sh)
+           # bash <(curl -s https://raw.githubusercontent.com/Sa-Sajjad/kernel_xiaomi_lavender/1u/.circleci/build.sh)
+           # bash .circleci/build.sh
 
 workflows:
   version: 2.1
