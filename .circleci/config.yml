@@ -2,8 +2,8 @@ version: 2.1
 jobs:
   compile:
    docker:
-      - image: nexgang/ubuntu:latest
-      # - image: z4nyx/docker:latest
+      # - image: nexgang/ubuntu:latest
+      - image: z4nyx/docker:latest
    steps:
       - run:
           command: |
@@ -11,9 +11,11 @@ jobs:
            git config --global user.email "sqsa93103@gmail.com"
            git config --global color.ui false
            # git clone --depth=1 -b ksu https://github.com/Sa-Sajjad/kernel_xiaomi_lavender-neko lv && cd lv
-           git clone --depth=1 -b kssu https://github.com/Sa-Sajjad/kernel_xiaomi_lavender lv && cd lv
+           git clone --depth=1 -b fuk https://github.com/Sa-Sajjad/kernel_xiaomi_lavender lv && cd lv
+           rm -rf KernelSU
+           git clone --branch v0.7.1 https://github.com/tiann/KernelSU.git
            # /noclone3 bash build.sh --old
-           bash <(curl -s https://raw.githubusercontent.com/ultra-noob-max/test/main/.circleci/2.sh) --old
+           # bash <(curl -s https://raw.githubusercontent.com/ultra-noob-max/test/main/.circleci/2.sh) --old
            # bash .circleci/build.sh
 
 workflows:
