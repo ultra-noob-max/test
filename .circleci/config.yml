@@ -11,7 +11,7 @@ jobs:
            git config --global user.email "sqsa93103@gmail.com"
            git config --global color.ui false
            
-           git clone --depth=1 -b neko-ksu https://github.com/Sa-Sajjad/kernel_xiaomi_lavender-neko .
+           git clone --depth=1 -b snx-ksu https://github.com/Sa-Sajjad/kernel_xiaomi_lavender-neko .
            # git clone --depth=1 https://github.com/Sa-Sajjad/kernel_xiaomi_lavender -b 1u .
            # git clone --depth=1 https://github.com/Coptan99/kernel_xiaomi_lavender -b tiramisu .
            # /noclone3 bash build.sh --old

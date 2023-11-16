@@ -58,7 +58,7 @@ function compile() {
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 Neko-lite-ksu-lavender-${TANGGAL}.zip *
+    zip -r9 Snx-lite-ksu-lavender-${TANGGAL}.zip *
     cd ..
 }
 
